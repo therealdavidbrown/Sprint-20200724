@@ -1,0 +1,103 @@
+import mysql.connector
+import numpy as np
+import matplotlib as plt
+import pandas as pd
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="putain",
+    database="products"
+    )
+mycursor = mydb.cursor()
+#cursor.execute("CREATE DATABASE products")
+mycursor.execute("SHOW DATABASES")
+#mycursor.execute("DROP TABLE products")
+
+mycursor.execute("CREATE TABLE Chips (name VARCHAR(255), price DECIMAL(5,2) )")
+mycursor.execute("SHOW TABLES")
+mycursor.execute("DELETE FROM Chips")
+sqlFormula = "INSERT INTO Chips (name, price) VALUES ( %s, %s)"
+items = [   ("Simba", 7.99),
+            ("Lays", 8.99),
+            ("Doritos", 8.99),
+            ("Pringles", 12.99),]
+mycursor.executemany(sqlFormula, items)
+mydb.commit()
+
+mycursor.execute("CREATE TABLE Cooldrink (name VARCHAR(255), price DECIMAL(5,2) )")
+mycursor.execute("SHOW TABLES")
+mycursor.execute("DELETE FROM Cooldrink")
+sqlFormula = "INSERT INTO Cooldrink (name, price) VALUES ( %s, %s)"
+items = [   ("Coke","Cooldrink", 10.00),
+            ("Fanta","Cooldrink", 10.00),
+            ("Schweppes", 12.00),
+            ("Red Bull", 15.00),
+            ("Grey Poupon", 45.00),
+            ("Pepsi Free", 12.00),
+            ("Pepsi", 10.00),
+            ("Pepsi Max", 10.00),
+            ("Pepsi Zero", 9.00),]
+mycursor.executemany(sqlFormula, items)
+mydb.commit()
+
+mycursor.execute("CREATE TABLE Chocolates (name VARCHAR(255), price DECIMAL(5,2) )")
+mycursor.execute("SHOW TABLES")
+mycursor.execute("DELETE FROM Chocolates")
+sqlFormula = "INSERT INTO Chocolates (name, price) VALUES ( %s, %s)"
+items = [   ("Cadbury", 13.95),
+            ("Tex", 8.95),
+            ("Lindt",  35.99),
+            ("Chocolate Orange",  45.00),
+            ("Crunchie",  8.99),]
+mycursor.executemany(sqlFormula, items)
+mydb.commit()
+
+mycursor.execute("CREATE TABLE Pies (name VARCHAR(255), price DECIMAL(5,2) )")
+mycursor.execute("SHOW TABLES")
+mycursor.execute("DELETE FROM Pies")
+sqlFormula = "INSERT INTO Pies (name, price) VALUES ( %s, %s)"
+items = [   ("Pepper Steak", 17.99),
+            ("Chicken", 17.99),
+            ("Cottage Pie", 19.99)]
+            ("Shepard's Pie", 19.99),
+            ("Eskimo Pie", 6.99),
+            ("Bannofee", 19.99),
+            ("Missisippi Mud Pie", 24.99),]
+mycursor.executemany(sqlFormula, items)
+mydb.commit()
+
+
+mycursor.execute("CREATE TABLE Fruit (name VARCHAR(255), price DECIMAL(5,2) )")
+mycursor.execute("SHOW TABLES")
+mycursor.execute("DELETE FROM Fruit")
+sqlFormula = "INSERT INTO Fruit (name, price) VALUES ( %s, %s)"
+items = [   ("Pear", 2.99),
+            ("Apple", 2.00),
+            ("Orange", 2.50),
+            ("Bananarama", 2.00),
+            ("Dragonfruit", 10.00),]
+mycursor.executemany(sqlFormula, items)
+mydb.commit()
+
+mycursor.execute("CREATE TABLE Veggies (name VARCHAR(255), price DECIMAL(5,2) )")
+mycursor.execute("SHOW TABLES")
+mycursor.execute("DELETE FROM Veggies")
+sqlFormula = "INSERT INTO Veggies (name, price) VALUES ( %s, %s)"
+items = [   ("Spinach", 10.50),
+            ("Cabbage", 4.45),]
+mycursor.executemany(sqlFormula, items)
+mydb.commit()
+
+mycursor.execute("CREATE TABLE Cupcakes (name VARCHAR(255), price DECIMAL(5,2) )")
+mycursor.execute("SHOW TABLES")
+mycursor.execute("DELETE FROM Cupcakes")
+sqlFormula = "INSERT INTO Cupcakes (name, price) VALUES ( %s, %s)"
+items = [   ("Vanilla", 7.00),
+            ("Chocolate", 7.00),
+            ("Strawberry", 7.00),
+            ("Red Velvet", 9.50),
+            ("Carrot", 9.50),
+            ("Skuinskoek", 9.50),]
+
+mycursor.executemany(sqlFormula, items)
+mydb.commit()
