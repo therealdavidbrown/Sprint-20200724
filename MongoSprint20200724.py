@@ -53,4 +53,9 @@ d29 = {"_id":29  , "brand" :  "Kit Kat: Chunky: Salted Caramel Fudge", "type": '
 d30 = {"_id":30  , "brand" :  "Kit Kat: Chunky: Salted Caramel Fudge: Mediterranean Kosher Sea Salt Edition", "type": 'chocolates' , "price":   8.99  }
 collection.insert_many([d21, d22, d23, d24, d25, d26, d27, d28, d29, d30])
 
+#5. Implement a descending sort to your data in MongoDB
+results = collection.find().sort("price", -1)
+for result in results:
+    print(result)
+    
 print("done")
