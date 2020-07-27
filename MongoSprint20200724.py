@@ -66,5 +66,12 @@ for i in range(2):
 #7. Update 1 product and its brands from your collection you created in question (3).
 results = collection.update_many({"type":'chocolates'}, {"$inc":{"price":0.75}})#increases the price of all chocolates by 75 cents
 
-
-print("done1")
+#8. Track (Search/Filter) for the least 5 brands in your products.
+param = input("enter the field you would like to search. Choose from '_id', 'brand', 'type', 'price'")
+termS = input('enter your search terms for ' + param)
+if param == 'price':
+    term = float(termS)
+else: term = termS
+results = collection.find({param:term})
+for result in results:
+    print(result)
