@@ -62,5 +62,9 @@ for result in results:
 for i in range(2):
     delID = int(input("Which product should be deleted? Enter the product ID. It is an integer."))
     results = collection.delete_one({"_id":delID})
-    
-print("done")
+
+#7. Update 1 product and its brands from your collection you created in question (3).
+results = collection.update_many({"type":'chocolates'}, {"$inc":{"price":0.75}})#increases the price of all chocolates by 75 cents
+
+
+print("done1")
