@@ -57,5 +57,10 @@ collection.insert_many([d21, d22, d23, d24, d25, d26, d27, d28, d29, d30])
 results = collection.find().sort("price", -1)
 for result in results:
     print(result)
+
+#6. Delete 2 brands from your collection of top 3 products.
+for i in range(2):
+    delID = int(input("Which product should be deleted? Enter the product ID. It is an integer."))
+    results = collection.delete_one({"_id":delID})
     
 print("done")
